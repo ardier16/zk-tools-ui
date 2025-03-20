@@ -1,6 +1,9 @@
+'use client'
+
 import { Separator } from '@radix-ui/react-separator'
 import { GalleryVerticalEnd } from 'lucide-react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import * as React from 'react'
 
 import {
@@ -19,11 +22,12 @@ import {
 interface SidebarItem {
   title: string
   url: string
-  isActive?: boolean
   items?: SidebarItem[]
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const pathname = usePathname()
+
   const items: SidebarItem[] = [
     {
       title: 'Query Proof',
@@ -32,6 +36,24 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {
           title: 'Selectors',
           url: '/selectors',
+        },
+      ],
+    },
+    {
+      title: 'Utilities',
+      url: '#',
+      items: [
+        {
+          title: 'Date converter',
+          url: '/date-converter',
+        },
+        {
+          title: 'Number converter',
+          url: '/number-converter',
+        },
+        {
+          title: 'Base64 to image',
+          url: '/base64-to-image',
         },
       ],
     },
@@ -64,7 +86,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               <SidebarMenu>
                 {item.items?.map(item => (
                   <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild isActive={item.isActive}>
+                    <SidebarMenuButton asChild isActive={pathname === item.url}>
                       <Link href={item.url}>{item.title}</Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
