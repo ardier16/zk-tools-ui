@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
+import CopyButton from '@/components/CopyButton'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
 import { convertSelectorToBits, formatBinaryString } from '@/lib/selector'
@@ -59,7 +60,7 @@ const SELECTOR_BITS: SelectorBit[] = [
 ]
 
 export default function SelectorForm() {
-  const [selector, setSelector] = useState('0xA101')
+  const [selector, setSelector] = useState('')
 
   const selectorBits = convertSelectorToBits(selector)
   const selectedBits = SELECTOR_BITS.filter(
@@ -78,6 +79,12 @@ export default function SelectorForm() {
     setSelector(`0x${parseInt(newSelectorBits, 2).toString(16).toUpperCase()}`)
   }
 
+  useEffect(() => {
+    const url = new URL(window.location.href)
+    const selector = url.searchParams.get('v')
+    if (selector) setSelector(selector)
+  }, [])
+
   return (
     <div className='flex flex-col gap-8'>
       <div className='flex flex-col gap-4'>
@@ -89,15 +96,16 @@ export default function SelectorForm() {
           onChange={e => setSelector(e.target.value)}
         />
         <div className='flex items-center justify-center gap-10'>
-          <p className='font-mono text-sm text-muted-foreground'>
-            Binary: {formatBinaryString(selectorBits)}
-          </p>
-          <p className='font-mono text-sm text-muted-foreground'>
-            Decimal: {parseInt(selectorBits, 2)}
-          </p>
-          <p className='font-mono text-sm text-muted-foreground'>
-            Hex: 0x{parseInt(selectorBits, 2).toString(16).toUpperCase()}
-          </p>
+          <OutputItem
+            title='Binary'
+            value={formatBinaryString(selectorBits)}
+            copyValue={selectorBits}
+          />
+          <OutputItem title='Decimal' value={parseInt(selectorBits, 2).toString()} />
+          <OutputItem
+            title='Hex'
+            value={`0x${parseInt(selectorBits, 2).toString(16).toUpperCase()}`}
+          />
         </div>
       </div>
       <div className='grid auto-rows-min gap-4 md:grid-cols-3'>
@@ -169,5 +177,25 @@ function SelectorBitItem({
         <p className='text-sm text-muted-foreground'>{selector.description}</p>
       </div>
     </label>
+  )
+}
+
+function OutputItem({
+  title,
+  value,
+  copyValue,
+}: {
+  title: string
+  value: string
+  copyValue?: string
+}) {
+  return (
+    <div className='flex flex-col gap-0.5'>
+      <p className='text-xs text-muted-foreground'>{title}</p>
+      <p className='font-mono text-sm flex gap-1 items-center'>
+        <span>{value}</span>
+        <CopyButton value={copyValue ?? value} />
+      </p>
+    </div>
   )
 }

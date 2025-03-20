@@ -40,7 +40,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       ],
     },
     {
-      title: 'Utilities',
+      title: 'Passport Utilities',
       url: '#',
       items: [
         {
