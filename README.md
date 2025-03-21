@@ -1,29 +1,37 @@
 # ✨ ZK Tools UI
 
-🌐 **Live:** [https://ardier16.github.io/zk-tools-ui](https://ardier16.github.io/zk-tools-ui)
+**ZK Tools UI** is a web-based suite of utilities designed for developers and researchers working with Zero-Knowledge Proof (ZK) technology. This project provides an intuitive interface to parse and visualize proof selectors, decode public signals, convert passport dates, and perform various conversions—all to streamline working with ZK proofs.
 
-## 🛠️ Tools
+## 🚀 Live Demo
 
-This project includes several tools for interacting with ZK technology:
+Explore the project live at:  
+[https://ardier16.github.io/zk-tools-ui](https://ardier16.github.io/zk-tools-ui)
 
-- 🔍 Query Proof Selector Parser
-- 📊 Query Proof Pub Signals Parser
-- 🗓️ Passport Date Converter
-- 🔢 Number Converter
-- 🖼️ Base64 to Image Converter
+## 🔍 Overview
 
-## 🚀 Getting Started
+This project offers several key tools that are essential when working with ZK proofs and related data formats:
 
-First, install the dependencies:
+- **Query Proof Selector Parser 🧩**  
+  Parse the bitmask that dictates which fields in a ZK proof are revealed versus verified. This tool helps you debug and ensure that privacy settings are correctly applied.
 
-```bash
-yarn install
-```
+- **Query Proof Public Signals Parser 🔎**  
+  Decode and inspect the public signals produced by ZK circuits, facilitating easier integration and verification of proofs.
 
-Then, run the development server:
+- **Passport Date Converter 📅**  
+  Convert passport date formats to standardized forms, ensuring compatibility with various ZK verification circuits.
 
-```bash
-yarn dev
-```
+- **Number Converter 🔢**  
+  Transform numbers between different bases and formats to support cryptographic and proof-related operations.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Base64 to Image Converter 🖼️**  
+  Convert Base64-encoded strings into images, aiding in the quick visualization and debugging of image data encoded in proofs.
+
+## 🔧 Getting Started
+
+Follow these steps to set up the project locally:
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/ardier16/zk-tools-ui.git
+   cd zk-tools-ui
