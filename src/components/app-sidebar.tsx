@@ -18,50 +18,10 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from '@/components/ui/sidebar'
-
-interface SidebarItem {
-  title: string
-  url: string
-  items?: SidebarItem[]
-}
+import { links } from '@/lib/links'
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname()
-
-  const items: SidebarItem[] = [
-    {
-      title: 'Query Proof',
-      url: '#',
-      items: [
-        {
-          title: 'Selectors',
-          url: '/selectors',
-        },
-        {
-          title: 'Public signals',
-          url: '/pub-signals',
-        },
-      ],
-    },
-    {
-      title: 'Passport Utilities',
-      url: '#',
-      items: [
-        {
-          title: 'Date converter',
-          url: '/date-converter',
-        },
-        {
-          title: 'Number converter',
-          url: '/number-converter',
-        },
-        {
-          title: 'Base64 to image',
-          url: '/base64-to-image',
-        },
-      ],
-    },
-  ]
 
   return (
     <Sidebar {...props}>
@@ -83,7 +43,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <Separator orientation='horizontal' />
       <SidebarContent>
         {/* We create a SidebarGroup for each parent. */}
-        {items.map(item => (
+        {links.map(item => (
           <SidebarGroup key={item.title}>
             <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
             <SidebarGroupContent>
