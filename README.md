@@ -35,3 +35,17 @@ Follow these steps to set up the project locally:
    ```bash
    git clone https://github.com/ardier16/zk-tools-ui.git
    cd zk-tools-ui
+
+2. **Install Dependencies:**
+
+   Make sure you have [Yarn](https://yarnpkg.com) installed, then run:
+
+   ```bash
+   yarn install
+
+3. **Start the Development Server:**
+
+   Run the following command to start the development server:
+
+   ```bash
+   yarn dev
