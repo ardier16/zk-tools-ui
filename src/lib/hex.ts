@@ -21,6 +21,6 @@ export function hexToDecimal(hex: string): number {
   return parseInt(hex.replace(/^0x/, ''), 16)
 }
 
-export function decimalToHex(decimal: number): string {
+export function decimalToHex(decimal: bigint): string {
   return `0x${decimal.toString(16)}`
 }

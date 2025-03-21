@@ -15,7 +15,7 @@ export default function DecodeForm() {
   const normalizedValue = useMemo(() => {
     return value.length === 6 || value.startsWith('0x')
       ? value
-      : (hexToString(decimalToHex(Number(value))) ?? '')
+      : (hexToString(decimalToHex(BigInt(value))) ?? '')
   }, [value])
 
   const encodedValue = useMemo(() => {

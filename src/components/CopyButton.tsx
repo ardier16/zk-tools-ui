@@ -11,7 +11,7 @@ export default function CopyButton({
   className,
   ...rest
 }: { value: string } & ComponentProps<'button'>) {
-  const [state, copyToClipboard] = useCopyToClipboard()
+  const [, copyToClipboard] = useCopyToClipboard()
   const [copied, setCopied] = useState(false)
 
   const copy = () => {

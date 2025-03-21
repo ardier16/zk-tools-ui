@@ -37,6 +37,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           title: 'Selectors',
           url: '/selectors',
         },
+        {
+          title: 'Public signals',
+          url: '/pub-signals',
+        },
       ],
     },
     {
