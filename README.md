@@ -1,18 +1,18 @@
-# zk-tools-ui
+# ✨ ZK Tools UI
 
-Live: https://ardier16.github.io/zk-tools-ui
+🌐 **Live:** [https://ardier16.github.io/zk-tools-ui](https://ardier16.github.io/zk-tools-ui)
 
-## Tools
+## 🛠️ Tools
 
 This project includes several tools for interacting with ZK technology:
 
-- Query Proof Selector Parser
-- Query Proof Pub Signals Parser
-- Passport Date Converter
-- Number Converter
-- Base64 to Image Converter
+- 🔍 Query Proof Selector Parser
+- 📊 Query Proof Pub Signals Parser
+- 🗓️ Passport Date Converter
+- 🔢 Number Converter
+- 🖼️ Base64 to Image Converter
 
-## Getting Started
+## 🚀 Getting Started
 
 First, install the dependencies:
 
